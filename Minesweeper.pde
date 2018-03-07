@@ -1,5 +1,3 @@
-
-
 import de.bezier.guido.*;
 int NUM_ROWS = 20; 
 int NUM_COLS = 20;
@@ -40,7 +38,7 @@ public void draw ()
 {
     background( 0 );
     if(isWon())
-        displayWinningMessage();
+        displayWinMessage();
 }
 public boolean isWon()
 {
@@ -53,7 +51,7 @@ public boolean isWon()
     return true;
     return false;
 }
-public void displayLosingMessage(){ 
+public void displayLoseMessage(){ 
     for (int b = 0; b < bombs.size(); b++){
     if (bombs.get(b).isMarked() == false){
       bombs.get(b).clicked = true;
@@ -68,7 +66,7 @@ public void displayLosingMessage(){
 }
     
 
-public void displayWinningMessage()
+public void displayWinMessage()
 {
    String youWon = new String("You Win!");
    for(int i =0; i<youWon.length();i++){
@@ -115,7 +113,7 @@ public class MSButton
                 clicked = false;
         }
         else if (bombs.contains(this) && marked==false){
-            displayLosingMessage();
+            displayLoseMessage();
         }
         else if(countBombs(r,c) > 0){
           int num = countBombs(r,c);
